@@ -17,7 +17,7 @@
 #pragma once
 
 /* Force NKRO on boot up regardless of the setting saved in the EEPROM (uncomment to enable it) */
- #define FORCE_NKRO
+//  #define FORCE_NKRO
 
 #define TAP_CODE_DELAY 5
 
@@ -72,6 +72,7 @@
 #define ENABLE_RGB_MATRIX_SOLID_REACTIVE
 #define ENABLE_RGB_MATRIX_MULTISPLASH
 
+// #define RGB_MATRIX_MAXIMUM_BRIGHTNESS 255 /* The maximum brightness level */
 
 //#define DISABLE_MK47_KEYCODES /*If you need to change or restore the default QMK button function, please open it*/
 

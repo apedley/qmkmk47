@@ -40,7 +40,7 @@
                 { "label": "P", "matrix": [0, 10], "x": 10, "y": 0 },
                 { "label": "BackSpace", "matrix": [0, 11], "x": 11, "y": 0 },
 
-                
+
                 { "label": "Tab", "matrix": [1, 0], "x": 0, "y": 1 },
                 { "label": "A", "matrix": [1, 1], "x": 1, "y": 1 },
                 { "label": "S", "matrix": [1, 2], "x": 2, "y": 1 },
@@ -70,8 +70,8 @@
                 { "label": "Ctrl", "matrix": [3, 0], "x": 0, "y": 3  },
                 { "label": "Win", "matrix": [3, 1],"x": 1, "y": 3 },
                 { "label": "Alt", "matrix": [3, 2],"x": 2, "y": 3 },
-                { "label": "Hyper", "matrix": [3, 3], "x": 3, "y": 3 }, 
-                { "label": "Lower", "matrix": [3, 4], "x": 4, "y": 3 }, 
+                { "label": "Hyper", "matrix": [3, 3], "x": 3, "y": 3 },
+                { "label": "Lower", "matrix": [3, 4], "x": 4, "y": 3 },
                 { "label": "Space", "matrix": [3, 5], "w": 2, "x": 5, "y": 3 },
                 { "label": "Ralse", "matrix": [3, 7], "x": 7, "y": 3 },
                 { "label": "Fn", "matrix": [3, 8], "x": 8, "y": 3 },
