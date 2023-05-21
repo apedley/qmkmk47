@@ -54,10 +54,12 @@ OPT_DEFS += -DHELIX_ROWS=$(strip $(HELIX_ROWS))
 ifeq ($(strip $(LED_BACK_ENABLE)), yes)
   RGBLIGHT_ENABLE = yes
   OPT_DEFS += -DRGBLED_BACK
-  ifeq ($(strip $(LED_UNDERGLOW_ENABLE)), yes)
-    $(error LED_BACK_ENABLE and LED_UNDERGLOW_ENABLE both 'yes')
-  endif
-else ifeq ($(strip $(LED_UNDERGLOW_ENABLE)), yes)
+#   ifeq ($(strip $(LED_UNDERGLOW_ENABLE)), yes)
+#     $(error LED_BACK_ENABLE and LED_UNDERGLOW_ENABLE both 'yes')
+#   endif
+endif
+
+ifeq ($(strip $(LED_UNDERGLOW_ENABLE)), yes)
   RGBLIGHT_ENABLE = yes
 endif
 
