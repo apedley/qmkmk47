@@ -86,39 +86,39 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     #define RGB_MATRIX_FRAMEBUFFER_EFFECTS
     #define RGB_MATRIX_KEYREACTIVE_ENABLED
     #define ENABLE_RGB_MATRIX_ALPHAS_MODS
-    // #define ENABLE_RGB_MATRIX_GRADIENT_UP_DOWN
-    // #define ENABLE_RGB_MATRIX_GRADIENT_LEFT_RIGHT
-    // #define ENABLE_RGB_MATRIX_BREATHING
-    // #define ENABLE_RGB_MATRIX_BAND_SAT
-    // #define ENABLE_RGB_MATRIX_BAND_VAL
-    // #define ENABLE_RGB_MATRIX_BAND_PINWHEEL_SAT
-    // #define ENABLE_RGB_MATRIX_BAND_PINWHEEL_VAL
-    // #define ENABLE_RGB_MATRIX_BAND_SPIRAL_SAT
-    // #define ENABLE_RGB_MATRIX_BAND_SPIRAL_VAL
-    // #define ENABLE_RGB_MATRIX_CYCLE_ALL
-    // #define ENABLE_RGB_MATRIX_CYCLE_LEFT_RIGHT
-    // #define ENABLE_RGB_MATRIX_CYCLE_UP_DOWN
+    #define ENABLE_RGB_MATRIX_GRADIENT_UP_DOWN
+    #define ENABLE_RGB_MATRIX_GRADIENT_LEFT_RIGHT
+    #define ENABLE_RGB_MATRIX_BREATHING
+    #define ENABLE_RGB_MATRIX_BAND_SAT
+    #define ENABLE_RGB_MATRIX_BAND_VAL
+    #define ENABLE_RGB_MATRIX_BAND_PINWHEEL_SAT
+    #define ENABLE_RGB_MATRIX_BAND_PINWHEEL_VAL
+    #define ENABLE_RGB_MATRIX_BAND_SPIRAL_SAT
+    #define ENABLE_RGB_MATRIX_BAND_SPIRAL_VAL
+    #define ENABLE_RGB_MATRIX_CYCLE_ALL
+    #define ENABLE_RGB_MATRIX_CYCLE_LEFT_RIGHT
+    #define ENABLE_RGB_MATRIX_CYCLE_UP_DOWN
     #define ENABLE_RGB_MATRIX_RAINBOW_MOVING_CHEVRON
-    // #define ENABLE_RGB_MATRIX_DUAL_BEACON
-    // #define ENABLE_RGB_MATRIX_CYCLE_PINWHEEL
-    // #define ENABLE_RGB_MATRIX_CYCLE_SPIRAL
-    // #define ENABLE_RGB_MATRIX_RAINBOW_BEACON
-    // #define ENABLE_RGB_MATRIX_RAINBOW_PINWHEELS
-    // #define ENABLE_RGB_MATRIX_RAINDROPS
-    // #define ENABLE_RGB_MATRIX_JELLYBEAN_RAINDROPS
-    // #define ENABLE_RGB_MATRIX_DIGITAL_RAIN
-    // #define ENABLE_RGB_MATRIX_SOLID_REACTIVE
-    // #define ENABLE_RGB_MATRIX_SOLID_REACTIVE_SIMPLE
-    // #define ENABLE_RGB_MATRIX_SOLID_REACTIVE_WIDE
-    // #define ENABLE_RGB_MATRIX_SOLID_REACTIVE_MULTIWIDE
-    // #define ENABLE_RGB_MATRIX_SOLID_REACTIVE_CROSS
-    // #define ENABLE_RGB_MATRIX_SOLID_REACTIVE_MULTICROSS
-    // #define ENABLE_RGB_MATRIX_SOLID_REACTIVE_NEXUS
-    // #define ENABLE_RGB_MATRIX_SOLID_REACTIVE_MULTINEXUS
-    // #define ENABLE_RGB_MATRIX_SPLASH
-    // #define ENABLE_RGB_MATRIX_MULTISPLASH
-    // #define ENABLE_RGB_MATRIX_SOLID_SPLASH
-    // #define ENABLE_RGB_MATRIX_SOLID_MULTISPLASH
+    #define ENABLE_RGB_MATRIX_DUAL_BEACON
+    #define ENABLE_RGB_MATRIX_CYCLE_PINWHEEL
+    #define ENABLE_RGB_MATRIX_CYCLE_SPIRAL
+    #define ENABLE_RGB_MATRIX_RAINBOW_BEACON
+    #define ENABLE_RGB_MATRIX_RAINBOW_PINWHEELS
+    #define ENABLE_RGB_MATRIX_RAINDROPS
+    #define ENABLE_RGB_MATRIX_JELLYBEAN_RAINDROPS
+    #define ENABLE_RGB_MATRIX_DIGITAL_RAIN
+    #define ENABLE_RGB_MATRIX_SOLID_REACTIVE
+    #define ENABLE_RGB_MATRIX_SOLID_REACTIVE_SIMPLE
+    #define ENABLE_RGB_MATRIX_SOLID_REACTIVE_WIDE
+    #define ENABLE_RGB_MATRIX_SOLID_REACTIVE_MULTIWIDE
+    #define ENABLE_RGB_MATRIX_SOLID_REACTIVE_CROSS
+    #define ENABLE_RGB_MATRIX_SOLID_REACTIVE_MULTICROSS
+    #define ENABLE_RGB_MATRIX_SOLID_REACTIVE_NEXUS
+    #define ENABLE_RGB_MATRIX_SOLID_REACTIVE_MULTINEXUS
+    #define ENABLE_RGB_MATRIX_SPLASH
+    #define ENABLE_RGB_MATRIX_MULTISPLASH
+    #define ENABLE_RGB_MATRIX_SOLID_SPLASH
+    #define ENABLE_RGB_MATRIX_SOLID_MULTISPLASH
 #endif
 
 /* Set 0 if debouncing isn't needed */
@@ -168,6 +168,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     // #define CIRQUE_PINNACLE_SECONDARY_TAP_ENABLE
     #define CIRQUE_PINNACLE_TAP_ENABLE
     #define POINTING_DEVICE_TASK_THROTTLE_MS 5
+    #define POINTING_DEVICE_ROTATION_90 // move to cirque specific config
+    #define POINTING_DEVICE_ROTATION_90_RIGHT
 #endif
 
 #ifdef FP_TRACKBALL_ENABLE
@@ -183,41 +185,36 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     // #define SPI_MISO_PAL_MODE 5 // already defined in chibios
 #endif
 
-// All the possible configurations of pointing devices
-#if defined(FP_TRACKBALL_BOTH)
-    #define POINTING_DEVICE_COMBINED            // two pointing devices
-    #define POINTING_DEVICE_INVERT_Y            // for trackball on the left
-    #define POINTING_DEVICE_INVERT_X_RIGHT      // for trackball on the right
+// If both sides have a pointing device
+#if defined(FP_TRACKBALL_BOTH) || \
+    defined(FP_CIRQUE_BOTH) || \
+    defined(FP_TRACKBALL_LEFT_CIRQUE_RIGHT) || \
+    defined(FP_CIRQUE_LEFT_TRACKBALL_RIGHT)
+        #define POINTING_DEVICE_COMBINED
 #endif
-#if defined(FP_CIRQUE_BOTH)
-    #define POINTING_DEVICE_COMBINED            // two pointing devices
-    #define POINTING_DEVICE_ROTATION_90         // for cirque on the left
-    #define POINTING_DEVICE_ROTATION_90_RIGHT   // for cirque on the right
-#endif
-#if defined(FP_TRACKBALL_LEFT_ONLY)
-    #define POINTING_DEVICE_LEFT                // one pointing device, on the left
-    #define POINTING_DEVICE_INVERT_Y            // for trackball on the left
-#endif
-#if defined(FP_TRACKBALL_RIGHT_ONLY)
-    #define POINTING_DEVICE_RIGHT               // one pointing device, on the right
-    #define POINTING_DEVICE_INVERT_X_RIGHT      // for trackball on the right
-#endif
-#if defined(FP_CIRQUE_LEFT_ONLY)
-    #define POINTING_DEVICE_LEFT                // one pointing device, on the left
-    #define POINTING_DEVICE_ROTATION_90         // for cirque on the left
-#endif
-#if defined(FP_CIRQUE_RIGHT_ONLY)
-    #define POINTING_DEVICE_RIGHT               // one pointing device, on the right
-    #define POINTING_DEVICE_ROTATION_90_RIGHT   // for cirque on the right
-#endif
-#if defined(FP_TRACKBALL_LEFT_CIRQUE_RIGHT)
-    #define POINTING_DEVICE_COMBINED            // two pointing devices
-    #define POINTING_DEVICE_INVERT_Y            // for trackball on the left
-    #define POINTING_DEVICE_ROTATION_90_RIGHT   // for cirque on the right
 
+// If the left side has a pointing device
+#if defined(FP_TRACKBALL_LEFT_ONLY) || \
+    defined(FP_CIRQUE_LEFT_ONLY)
+        #define POINTING_DEVICE_LEFT
 #endif
-#if defined(FP_CIRQUE_LEFT_TRACKBALL_RIGHT)
-    #define POINTING_DEVICE_COMBINED            // two pointing devices
-    #define POINTING_DEVICE_ROTATION_90         // for cirque on the left
-    #define POINTING_DEVICE_INVERT_X_RIGHT      // for trackball on the right
+
+// If the right side has a pointing device
+#if defined(FP_TRACKBALL_RIGHT_ONLY) || \
+    defined(FP_CIRQUE_RIGHT_ONLY)
+        #define POINTING_DEVICE_RIGHT
+#endif
+
+// If there is a trackball on the left side
+#if defined(FP_TRACKBALL_BOTH) || \
+    defined(FP_TRACKBALL_LEFT_CIRQUE_RIGHT) || \
+    defined(FP_TRACKBALL_LEFT_ONLY)
+        #define POINTING_DEVICE_INVERT_Y // This inverts the Y on the left side only
+#endif
+
+// If there is a trackball on the right side
+#if defined(FP_TRACKBALL_BOTH) || \
+    defined(FP_CIRQUE_LEFT_TRACKBALL_RIGHT) || \
+    defined(FP_TRACKBALL_RIGHT_ONLY)
+        #define POINTING_DEVICE_INVERT_X_RIGHT
 #endif
