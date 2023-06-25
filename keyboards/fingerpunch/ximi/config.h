@@ -168,8 +168,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     // #define CIRQUE_PINNACLE_SECONDARY_TAP_ENABLE
     #define CIRQUE_PINNACLE_TAP_ENABLE
     #define POINTING_DEVICE_TASK_THROTTLE_MS 5
-    #define POINTING_DEVICE_ROTATION_90 // move to cirque specific config
-    #define POINTING_DEVICE_ROTATION_90_RIGHT
+    // #define POINTING_DEVICE_ROTATION_90 // move to cirque specific config
+    // #define POINTING_DEVICE_ROTATION_90_RIGHT
 #endif
 
 #ifdef FP_TRACKBALL_ENABLE
